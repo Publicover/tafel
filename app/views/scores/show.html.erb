@@ -1,2 +1,20 @@
 <h1>Scores#show</h1>
 <p>Find me in app/views/scores/show.html.erb</p>
+
+<%= link_to 'Back to creating scores', new_score_path %><br />
+<%= link_to 'See all scores', scores_path %><br />
+<%= link_to 'Back to games', games_path %><br />
+<%= link_to 'See the teams', teams_path %><br />
+<%= link_to 'Back to dashboard', root_path %><br />
+
+<h1>Score <%= @score.id %></h1>
+<%= link_to 'Update this score', edit_score_path(@score) %>
+<p>
+  Points: <%= @score.points %>
+</p>
+<p>
+  Game ID: <%= @score.game_id %>
+</p>
+<p>
+  Team: <%= @score.team_id %>
+</p>

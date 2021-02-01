@@ -1,0 +1,29 @@
+<%= form_for @score do |f| %>
+  <% if @score.errors.any? %>
+    <div id="error_explanation">
+      <p>
+        <%= pluralize(@score.errors.count, "error") %> prohibited
+        this article from being saved:
+      </p>
+      <% @score.errors.full_messages.each do |msg| %>
+        <li><center><%= msg %></li>
+      <% end %>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.hidden_field :points, value: 0 %>
+  </p>
+
+  <p>
+    <%= f.label 'Game' %>
+    <%= f.collection_select :game_id, Game.order(created_at: :desc), :id, :name %>
+  </p>
+
+  <p>
+    <%= f.label 'Team' %>
+    <%= f.collection_select :team_id, Team.order(:name), :id, :name %>
+  </p>
+
+  <%= f.submit %>
+<% end %>
