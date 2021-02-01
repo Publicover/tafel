@@ -1,0 +1,59 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+admin:
+  email: jim@pubchalk.com
+  f_name: Jim
+  l_name: Pub
+  role: <%= :admin %>
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+
+captain:
+  email: dana@pubchalk.com
+  f_name: Dana
+  l_name: Pub
+  role: captain
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+
+player:
+  email: mike@pubchalk.com
+  f_name: Mike
+  l_name: Pub
+  role: player
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+
+guy:
+  email: guy@otherteam.com
+  f_name: Some
+  l_name: Guy
+  role: captain
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+
+other_guy:
+  email: otherguy@otherteam.com
+  f_name: Other
+  l_name: Guy
+  role: captain
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+
+dont_user:
+  email: thiswillfail@team3.com
+  f_name: This
+  l_name: Willfail
+  role: captain
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+
+dont_either:
+  email: thiswillfailtoo@team3.com
+  f_name: Also
+  l_name: Fail
+  role: player
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
