@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GamePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
@@ -46,6 +48,6 @@ class GamePolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-    [:name, :schedule_date, team_ids: []]
+    [:name, :schedule_date, { team_ids: [] }]
   end
 end

@@ -58,6 +58,10 @@ Style/ClassAndModuleChildren:
     - app/controllers/**/*
     - test/**/*
 
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - app/controllers/**/*
+
 Style/Documentation:
   Enabled: false
 
