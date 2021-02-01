@@ -1,0 +1,31 @@
+<h1>GAME: <%= "#{@game.name}" %></h1>
+<% @game.scores.each do |score| %>
+  <h5>Team Name: <%= score.team_name %></h5>
+  <h5>Points: <%= score.points %></h5>
+<% end %>
+
+<%= form_for @game do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <p>
+        <%= pluralize(@game.errors.count, "error") %> prohibited
+        this article from being saved:
+      </p>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><center><%= msg %></li>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :scores do |ff| %>
+    <p>
+      <% if ff.object.allowed_to_update?(current_user) %>
+        <p><%= ff.object.team_name %></p>
+        <p><%= ff.object.points %></p>
+        <%= ff.label 'Points' %>
+        <%= ff.number_field :points %>
+      <% end %>
+    </p>
+  <% end %>
+  <p><%= f.submit %></p>
+<% end %>

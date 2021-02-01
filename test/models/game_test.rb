@@ -41,4 +41,17 @@ class GameTest < ActiveSupport::TestCase
                        team_ids: [teams(:one).id, teams(:two).id])
     assert game.player?(users(:captain))
   end
+
+  test 'should create scores' do
+    game = games(:four)
+    game.update(team_ids: [teams(:one).id, teams(:two).id])
+    game.create_scores
+    assert_not_nil game.scores.count
+    scores = Score.where(game_id: game.id)
+    assert_equal scores.count, game.scores.count
+    assert_equal scores.first.team_id, teams(:one).id
+    assert_equal scores.first.game_id, game.id
+    assert_equal scores.last.team_id, teams(:two).id
+    assert_equal scores.last.game_id, game.id
+  end
 end

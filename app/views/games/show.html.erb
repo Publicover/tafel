@@ -16,3 +16,9 @@
 <p>
   <%= @game.team_ids %>
 </p>
+
+<div style="padding-left:15px">
+  <% @game.scores.each do |score| %>
+    <p><%= score.team_name %>: <%= score.points %> points</p>
+  <% end %>
+</div>

@@ -48,6 +48,6 @@ class GamePolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-    [:name, :schedule_date, { team_ids: [] }]
+    [:name, :schedule_date, { team_ids: [] }, scores_attributes: [:id, :points, :game_id, :team_id]]
   end
 end

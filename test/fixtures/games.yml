@@ -14,3 +14,8 @@ three:
   name: No One Plays This One
   schedule_date: 2021-01-28
   team_ids: [10, 11]
+
+four:
+  name: Without Scores
+  schedule_date: 2021-01-29
+  team_ids: [nil]

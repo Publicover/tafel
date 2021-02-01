@@ -15,3 +15,10 @@ Made it to dashboards/index.
 <p>
   <%= link_to 'Create a score', new_score_path %>
 </p>
+
+<p>
+  <p>Current Games:</p>
+  <% current_user&.team&.scores&.each do |score| %>
+    <p><%= link_to "#{score.game.name}, #{score.game.schedule_date}", game_path(score.game) %></p>
+  <% end %>
+</p>

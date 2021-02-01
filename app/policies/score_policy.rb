@@ -15,7 +15,7 @@ class ScorePolicy < ApplicationPolicy
 
   def show?
     return true if user.admin?
-    return true if record.player?(user)
+    return true if record.allowed_to_update?(user)
 
     false
   end

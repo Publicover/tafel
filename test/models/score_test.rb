@@ -16,4 +16,8 @@ class ScoreTest < ActiveSupport::TestCase
   test 'should know players' do
     assert_equal @score.players.size, @score.team.players.size
   end
+
+  test 'should know team name' do
+    assert_equal @score.team_name, @score.team.name
+  end
 end

@@ -23,5 +23,11 @@
   <p><%= link_to "#{game.name}", edit_game_path(game) %></p>
   <p><%= game.schedule_date %></p>
   <p><%= game.team_ids %></p>
+  <div style="padding-left:15px">Scores:
+    <% game.scores.each do |score| %>
+      <p>Score ID: <%= score.id %></p>
+      <p><%= score.team_name %>: <%= score.points %> points</p>
+    <% end %>
+  </div>
   <hr />
 <% end %>
