@@ -18,4 +18,8 @@ class UserTest < ActiveSupport::TestCase
     assert_not user.save
     assert_not_nil user.errors[:line1]
   end
+
+  test 'should know team' do
+    assert users(:captain).team.id == teams(:one).id
+  end
 end

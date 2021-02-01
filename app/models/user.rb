@@ -6,6 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  belongs_to :team, class_name: 'Team', inverse_of: :players
+
   validates :f_name, :l_name, :role, presence: true
 
   enum role: {

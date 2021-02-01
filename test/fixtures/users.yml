@@ -22,6 +22,7 @@ captain:
   l_name: Pub
   role: captain
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  team: one
 
 player:
   email: mike@pubchalk.com
@@ -29,6 +30,7 @@ player:
   l_name: Pub
   role: player
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  team: one
 
 guy:
   email: guy@otherteam.com
@@ -36,6 +38,7 @@ guy:
   l_name: Guy
   role: captain
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  team: two
 
 other_guy:
   email: otherguy@otherteam.com
@@ -43,6 +46,7 @@ other_guy:
   l_name: Guy
   role: captain
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  team: two
 
 dont_user:
   email: thiswillfail@team3.com
@@ -50,6 +54,7 @@ dont_user:
   l_name: Willfail
   role: captain
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  team: three
 
 dont_either:
   email: thiswillfailtoo@team3.com
@@ -57,3 +62,4 @@ dont_either:
   l_name: Fail
   role: player
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  team: three

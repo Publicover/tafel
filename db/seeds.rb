@@ -10,16 +10,20 @@ puts "Creating admin..."
 User.create(email: 'jim@pubchalk.com', f_name: 'Jim', l_name: 'Pub', role: :admin,
             password: 'password')
 
-puts "Creating two other users..."
+team = Team.create(name: 'Fightin Buckeyes')
+
+puts "Creating a team with two other users..."
 
 User.create(email: 'dana@pubchalk.com', f_name: 'Dana', l_name: 'Pub', role: :captain,
-            password: 'password')
+            password: 'password', team_id: team.id)
 User.create(email: 'mike@pubchalk.com', f_name: 'Mike', l_name: 'Pub', role: :player,
-            password: 'password')
+            password: 'password', team_id: team.id)
 
-puts "And two more..."
+puts "And another with two more..."
+
+other_team = Team.create(name: 'Ohio Players')
 
 User.create(email: 'someguy@team.com', f_name: 'Some', l_name: 'Guy', role: :captain,
-            password: 'password')
+            password: 'password', team_id: team.id)
 User.create(email: 'otherguy@team.com', f_name: 'Other', l_name: 'Guy', role: :player,
-            password: 'password')
+            password: 'password', team_id: team.id)
