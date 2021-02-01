@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class GamePolicy < ApplicationPolicy
+class ScorePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -21,7 +21,9 @@ class GamePolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    return true if user.admin?
+
+    false
   end
 
   def create?
@@ -29,25 +31,18 @@ class GamePolicy < ApplicationPolicy
   end
 
   def edit?
-    return true if user.admin?
-    return true if user.captain?
-    return true if record.player?(user)
-
-    false
+    show?
   end
 
   def update?
-    edit?
+    show?
   end
 
   def destroy?
-    return true if user.admin?
-    return true if record.player?(user)
-
-    false
+    new?
   end
 
   def permitted_attributes
-    [:name, :schedule_date, { team_ids: [] }]
+    [:points, :game_id, :team_id]
   end
 end

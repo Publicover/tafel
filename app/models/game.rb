@@ -2,7 +2,7 @@
 
 class Game < ApplicationRecord
   has_many :scores, inverse_of: :game, dependent: :destroy
-  
+
   validates :name, :schedule_date, :team_ids, presence: true
 
   def teams
@@ -21,7 +21,7 @@ class Game < ApplicationRecord
     user_ary.flatten
   end
 
-  def has_player?(user)
+  def player?(user)
     players.include?(user)
   end
 end

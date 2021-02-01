@@ -18,4 +18,9 @@ game_two_team_one:
 game_two_team_two:
   points: 22
   game: two
-  team: one
+  team: two
+
+game_three_team_three:
+  points: 0
+  game: three
+  team: three

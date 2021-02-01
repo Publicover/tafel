@@ -5,4 +5,5 @@ class Score < ApplicationRecord
   belongs_to :team, inverse_of: :scores
 
   delegate :players, to: :team, allow_nil: true
+  delegate :player?, to: :game, allow_nil: true
 end

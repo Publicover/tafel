@@ -39,6 +39,6 @@ class GameTest < ActiveSupport::TestCase
     game = Game.create(name: 'Cricket',
                        schedule_date: Time.zone.today,
                        team_ids: [teams(:one).id, teams(:two).id])
-    assert game.has_player?(users(:captain))
+    assert game.player?(users(:captain))
   end
 end
