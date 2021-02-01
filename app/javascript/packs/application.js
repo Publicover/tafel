@@ -7,8 +7,12 @@ import Rails from "@rails/ujs"
 import "@hotwired/turbo-rails"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import 'bootstrap'
 
 Rails.start()
 ActiveStorage.start()
 
 import "controllers"
+
+require('../stylesheets/dashboards.scss')
+require('../stylesheets/general.scss')

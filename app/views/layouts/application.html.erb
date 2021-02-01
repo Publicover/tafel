@@ -11,6 +11,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% unless notice.nil? %>
+      <p class="notice middle"><%= notice %></p>
+    <% end %>
+    <% unless alert.nil? %>
+      <p class="alert middle"><%= alert %></p>
+    <% end %>
+
+    <div class='container'>
+      <div class='page'>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

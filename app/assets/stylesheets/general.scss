@@ -1,0 +1,30 @@
+html {
+  // font-family: 'Courier', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #f3f3f3;
+}
+
+.alert {
+  background-color: #ff0f0f;
+}
+
+.notice {
+  background-color: #ACDF87;
+}
+
+.container {
+  padding-top: 1em;
+}
+
+.page {
+  padding-top: 1em;
+}
+
+.middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
