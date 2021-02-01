@@ -18,4 +18,8 @@ class Game < ApplicationRecord
     end
     user_ary.flatten
   end
+
+  def has_player?(user)
+    players.include?(user)
+  end
 end

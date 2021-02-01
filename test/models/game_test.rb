@@ -34,4 +34,11 @@ class GameTest < ActiveSupport::TestCase
                        team_ids: [teams(:one).id, teams(:two).id])
     assert_equal [], game.players.pluck(:id) - team_one_players - team_two_players
   end
+
+  test 'should know if it has individual player' do
+    game = Game.create(name: 'Cricket',
+                       schedule_date: Time.zone.today,
+                       team_ids: [teams(:one).id, teams(:two).id])
+    assert game.has_player?(users(:captain))
+  end
 end

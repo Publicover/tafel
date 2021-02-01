@@ -9,3 +9,8 @@ two:
   name: Cricket
   schedule_date: 2021-01-28
   team_ids: [1, 2]
+
+three:
+  name: No One Plays This One
+  schedule_date: 2021-01-28
+  team_ids: [10, 11]
