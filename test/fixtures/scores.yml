@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+game_one_team_one:
+  points: 11
+  game: one
+  team: one
+
+game_one_team_two:
+  points: 12
+  game: one
+  team: two
+
+game_two_team_one:
+  points: 21
+  game: two
+  team: one
+
+game_two_team_two:
+  points: 22
+  game: two
+  team: one

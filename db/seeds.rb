@@ -31,16 +31,21 @@ other_team.logo.attach(io: File.open('test/fixtures/files/t2_fire_thumbs_up.jpg'
                        content_type: 'image/jpg')
 other_team.save
 
-puts "Creating two games..."
-
 User.create(email: 'someguy@team.com', f_name: 'Some', l_name: 'Guy', role: :captain,
             password: 'password', team_id: other_team.id)
 User.create(email: 'otherguy@team.com', f_name: 'Other', l_name: 'Guy', role: :player,
             password: 'password', team_id: other_team.id)
 
-            puts 'Creating 2 games...'
+puts 'Creating 2 games...'
 
-Game.create!(name: 'Cricket', schedule_date: Time.zone.today, team_ids: [team.id, other_team.id])
-Game.create!(name: '501', schedule_date: Time.zone.tomorrow, team_ids: [team.id, other_team.id])
+first_game = Game.create!(name: 'Cricket', schedule_date: Time.zone.today, team_ids: [team.id, other_team.id])
+Score.create!(points: 11, game_id: first_game.id, team_id: team.id)
+Score.create!(points: 12, game_id: first_game.id, team_id: other_team.id)
+
+puts "With some scores..."
+
+second_game = Game.create!(name: '501', schedule_date: Time.zone.tomorrow, team_ids: [team.id, other_team.id])
+Score.create!(points: 21, game_id: second_game.id, team_id: team.id)
+Score.create!(points: 22, game_id: second_game.id, team_id: other_team.id)
 
 puts "Seeds complete!"

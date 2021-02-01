@@ -2,8 +2,17 @@
 <p>Find me in app/views/games/index.html.erb</p>
 
 <p>
+  <%= link_to 'Back to dashboard', root_path %>
+</p>
+<p>
+  <%= link_to 'See the teams', teams_path %>
+</p>
+
+<p>
   <%= link_to 'Create a new game', new_game_path %>
 </p>
+
+<hr />
 
 <% @games.each do |game| %>
   <hr />
