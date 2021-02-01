@@ -1,8 +1,6 @@
 <h1>Scores#index</h1>
 <p>Find me in app/views/scores/index.html.erb</p>
 
-<% @scores.each do |score| %>
-  <p>Points: <%= score.points %></p>
-  <p>Game ID: <%= score.game_id %></p>
-  <p>Team: <%= score.team_id %></p>
-<% end %>
+<p><%= link_to 'See the teams', teams_path %></p>
+
+<%= render @scores %>

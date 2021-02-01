@@ -15,20 +15,4 @@
 
 <hr />
 
-<% @teams.each do |team| %>
-  <div>
-    <p>
-      <%= link_to "#{team.name}", team_path(team) %>
-    </p>
-    <p>
-      <% if team.logo.attached? %>
-        <%= image_tag url_for(team.logo), class: 'sized-image' %>
-      <% else %>
-        Get your captain to add a logo!
-      <% end %>
-    </p>
-    <% team.players.each do |player| %>
-      <p>Member: <%= player.full_name %></p>
-    <% end %>
-  </div>
-<% end %>
+<%= render @teams %>

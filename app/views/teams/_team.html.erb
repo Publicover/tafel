@@ -1,0 +1,13 @@
+<div class="card card-body">
+  <p><%= link_to "#{team.name}", team_path(team) %></p>
+  <div>
+    <% if team.logo.attached? %>
+      <%= image_tag url_for(team.logo), class: 'sized-image' %>
+    <% else %>
+      Get your captain to add a logo!
+    <% end %>
+  </div>
+  <% team.players.each do |player| %>
+    <p>Member: <%= player.full_name %></p>
+  <% end %>
+</div>
