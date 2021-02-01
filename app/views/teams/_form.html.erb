@@ -1,0 +1,26 @@
+<%= form_for @team do |f| %>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <p>
+        <%= pluralize(@team.errors.count, "error") %> prohibited
+        this article from being saved:
+      </p>
+      <% @team.errors.full_messages.each do |msg| %>
+        <li><center><%= msg %></li>
+      <% end %>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label "Name" %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label "Logo" %>
+    <%= f.file_field :logo %>
+  </p>
+
+  <%= f.submit %>
+
+<% end %>

@@ -1,2 +1,22 @@
 <h1>Teams#show</h1>
 <p>Find me in app/views/teams/show.html.erb</p>
+
+<p>
+  <%= link_to 'Back to index', teams_path %>
+</p>
+<p>
+  <%= link_to 'Update this team info', edit_team_path(@team) %>
+</p>
+
+<p>
+  <%= @team.name %>
+</p>
+
+<p>
+  <% if @team.logo.attached? %>
+    <%= image_tag url_for(@team.logo), class: 'sized-image' %>
+  <% else %>
+    Get your captain to add a logo!
+  <% end %>
+
+</p>
