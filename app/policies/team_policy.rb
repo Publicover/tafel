@@ -5,39 +5,43 @@ class TeamPolicy < ApplicationPolicy
     def resolve
       return scope.all if user
     end
+  end
 
-    def index?
-      true
-    end
+  def index?
+    true
+  end
 
-    def show?
-      index?
-    end
+  def show?
+    index?
+  end
 
-    def new?
-      return true if user.admin?
-      return true if user.captain?
+  def new?
+    return true if user.admin?
+    return true if user.captain?
 
-      false
-    end
+    false
+  end
 
-    def create?
-      new?
-    end
+  def create?
+    new?
+  end
 
-    def edit?
-      return true if user.admin?
-      return true if user.captain && record.user_id == user.id
+  def edit?
+    return true if user.admin?
+    return true if user.captain? && record.players.include?(user)
 
-      false
-    end
+    false
+  end
 
-    def update?
-      edit?
-    end
+  def update?
+    edit?
+  end
 
-    def destroy?
-      edit?
-    end
+  def destroy?
+    edit?
+  end
+
+  def permitted_attributes
+    %i[name logo]
   end
 end

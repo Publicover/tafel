@@ -6,9 +6,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :team, class_name: 'Team', inverse_of: :players
+  belongs_to :team, class_name: 'Team', inverse_of: :players, optional: true
 
   validates :f_name, :l_name, :role, presence: true
+  validates :team, presence: { if: :team_id_present? }
 
   enum role: {
     admin: 0,
