@@ -1,2 +1,18 @@
 <h1>Games#show</h1>
 <p>Find me in app/views/games/show.html.erb</p>
+
+<p>
+  <%= link_to 'Back to index', games_path %>
+</p>
+
+<p>
+  <%= link_to "#{@game.name}", edit_game_path(@game) %>
+</p>
+
+<p>
+  <%= @game.schedule_date %>
+</p>
+
+<p>
+  <%= @game.team_ids %>
+</p>

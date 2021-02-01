@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, except: [:index, :new, :create]
+  before_action :set_teams, only: [:new, :create, :edit, :update]
 
   def index
     @games = policy_scope(Game)
@@ -43,6 +44,10 @@ class GamesController < ApplicationController
     def set_game
       @game = Game.find(params[:id])
       authorize @game
+    end
+
+    def set_teams
+      @teams = Team.all
     end
 
     def game_params
