@@ -32,6 +32,6 @@ other_team.logo.attach(io: File.open('test/fixtures/files/t2_fire_thumbs_up.jpg'
 other_team.save
 
 User.create(email: 'someguy@team.com', f_name: 'Some', l_name: 'Guy', role: :captain,
-            password: 'password', team_id: team.id)
+            password: 'password', team_id: other_team.id)
 User.create(email: 'otherguy@team.com', f_name: 'Other', l_name: 'Guy', role: :player,
-            password: 'password', team_id: team.id)
+            password: 'password', team_id: other_team.id)
