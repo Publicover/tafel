@@ -1,15 +1,22 @@
 <h1>Games#index</h1>
 <p>Find me in app/views/games/index.html.erb</p>
 
+<p>Hey, <%= current_user.email %>. You're a <%= current_user.role %> on the <%= current_user.team_name %>.</p>
+
 <p><%= link_to 'Back to dashboard', root_path %></p>
 <p><%= link_to 'See the teams', teams_path %></p>
 <p><%= link_to 'Create a new game', new_game_path %></p>
 <p><%= link_to 'Create a score', new_score_path %></p>
 
-<hr />
-
-<%= render 'games/form', game: @game %>
+<%= turbo_stream_from 'games' %>
 
 <hr />
+<%= turbo_frame_tag 'game_form' do %>
+  <%= render 'games/form', game: @game %>
+<% end %>
 
-<%= render @games %>
+<hr />
+
+<%= turbo_frame_tag 'games' do %>
+  <%= render @games %>
+<% end %>

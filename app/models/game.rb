@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Game < ApplicationRecord
+  after_create_commit { broadcast_prepend_to 'games' }
+  after_update_commit { broadcast_replace_to 'games' }
+  after_destroy_commit { broadcast_remove_to 'games' }
+  
   has_many :scores, inverse_of: :game, dependent: :destroy
   accepts_nested_attributes_for :scores
 

@@ -1,10 +1,12 @@
 class GamesController < ApplicationController
   before_action :set_game, except: %i[index new create]
-  before_action :set_teams, only: %i[new create edit update]
+  before_action :set_teams, except: [:show, :destroy]
 
   def index
-    @games = policy_scope(Game)
+    @games = policy_scope(Game).order(created_at: :desc)
     authorize @games
+    @game = Game.new
+    authorize @game
   end
 
   def show; end
@@ -18,10 +20,14 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
     authorize @game
 
-    if @game.save
-      redirect_to game_path(@game)
-    else
-      render :new
+    respond_to do |format|
+      if @game.save
+        @game.create_scores
+        format.html { redirect_to games_path, notice: 'Game created.' }
+      else
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@game, partial: 'games/form', locals: { game: @game }) }
+        format.html { render :new }
+      end
     end
   end
 

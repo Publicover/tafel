@@ -8,9 +8,10 @@ class GamePolicy < ApplicationPolicy
   end
 
   def index?
-    return true if user.admin?
-
-    false
+    # return true if user.admin?
+    #
+    # false
+    true
   end
 
   def show?

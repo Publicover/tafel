@@ -11,6 +11,8 @@ class User < ApplicationRecord
   validates :f_name, :l_name, :role, presence: true
   validates :team, presence: { if: :team_id_present? }
 
+  delegate :name, to: :team, prefix: true
+
   enum role: {
     admin: 0,
     captain: 1,
