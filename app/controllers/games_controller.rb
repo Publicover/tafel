@@ -34,7 +34,7 @@ class GamesController < ApplicationController
 
   def destroy
     @game.destroy
-    redirect_to games_path
+    redirect_to games_path, notice: 'Game destroyed.'
   end
 
   private

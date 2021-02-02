@@ -1,25 +1,11 @@
-<p>Made it to dashboards/index.</p>
+<p>Made it to the main dashboard, <%= current_user.full_name %>. You're a <%= current_user.role %>.</p>
 
-
-<p>
-  <%= link_to 'See the teams', teams_path %>
-</p>
-
-<p>
-  <%= link_to 'See the games', games_path %>
-</p>
-
-<p>
-  <%= link_to 'Start a game', new_game_path %>
-</p>
-
-<p>
-  <%= link_to 'Create a score', new_score_path %>
-</p>
-
-<p>
-  <%= link_to 'See the scores', scores_path %>
-</p>
+<p><%= link_to 'See Game 501', game_path(Game.find_by(name: '501')) %></p>
+<p><%= link_to 'See the teams', teams_path %></p>
+<p><%= link_to 'See the games', games_path %></p>
+<p><%= link_to 'Start a game', new_game_path %></p>
+<p><%= link_to 'Create a score', new_score_path %></p>
+<p><%= link_to 'See the scores', scores_path %></p>
 
 <p>
   <p>Current Games:</p>

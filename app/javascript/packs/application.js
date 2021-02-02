@@ -13,6 +13,3 @@ Rails.start()
 ActiveStorage.start()
 
 import "controllers"
-
-require('../stylesheets/dashboards.scss')
-require('../stylesheets/general.scss')

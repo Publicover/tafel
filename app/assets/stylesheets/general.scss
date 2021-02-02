@@ -1,11 +1,18 @@
 html {
-  // font-family: 'Courier', sans-serif;
   font-family: 'Montserrat', sans-serif;
 }
 
 body {
   background-color: #f3f3f3;
   margin: 33px;
+}
+
+.container {
+  padding-top: 1em;
+}
+
+.page {
+  padding-top: 1em;
 }
 
 .alert {
@@ -40,14 +47,6 @@ body {
 #error_explanation ul li {
   font-size: 12px;
   list-style: square; }
-
-.container {
-  padding-top: 1em;
-}
-
-.page {
-  padding-top: 1em;
-}
 
 th {
   padding-bottom: 5px; }
